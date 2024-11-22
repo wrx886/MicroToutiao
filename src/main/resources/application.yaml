@@ -1,0 +1,33 @@
+# 连接池配置
+spring:
+    datasource:
+        type: com.alibaba.druid.pool.DruidDataSource
+        druid:
+            url: jdbc:mysql://localhost:3306/sm_db
+            username: root
+            password: root
+            driver-class-name: com.mysql.cj.jdbc.Driver
+
+# mybatis-plus
+mybatis-plus:
+    configuration:
+        # 配置映射级别
+        auto-mapping-behavior: full
+        # 日志输出打印输出
+        log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 配置别名
+    type-aliases-package: org.example.pojo
+    global-config:
+        db-config:
+            # 逻辑删除字段
+            logic-delete-field: isDeleted
+            # 表名公共前缀
+            table-prefix: news_
+            # 主键自增长
+            id-type: auto
+
+#jwt配置
+jwt:
+    token:
+        tokenExpiration: 86400000 #有效时间,单位毫秒
+        tokenSignKey: 123456  #当前程序签名秘钥 自定义
